@@ -30,6 +30,8 @@ function Casino() {
    const [dinero, setDinero] = useState(100);
     // cantidad a apostar por vez
    const  [apuesta, setApuesta] =  useState(10);
+    // puntaje ganado    
+   const [ganancia, setGanancia] = useState(0);
 
 
     function slotSpin () {
@@ -68,21 +70,27 @@ function Casino() {
         
         if(newReel[0] === newReel[1]){
             if(newReel[1] === newReel[2]){
+                setGanancia(apuesta * 5 * multiplyPoker);
                 setMessage("jackpot")
-                moneyUpdate(dinero + (apuesta * 5 * multiplyPoker));9
+                moneyUpdate((dinero - apuesta) + (apuesta * 5 * multiplyPoker));
             }else{
+                setGanancia(apuesta * 2 * multiplyPoker);
                 setMessage("par");
-                moneyUpdate(dinero + (apuesta * 2 * multiplyPoker));
+                moneyUpdate((dinero - apuesta) + (apuesta * 2 * multiplyPoker));
             }
         }else if(newReel[0] === newReel[2]){
+            setGanancia(apuesta * 2 * multiplyPoker);
             setMessage("par v2");
-            moneyUpdate(dinero + (apuesta * 2 * multiplyPoker));
+            moneyUpdate((dinero - apuesta) + (apuesta * 2 * multiplyPoker));
 
         }else if(newReel[1] === newReel[2]){
+            setGanancia(apuesta * 2 * multiplyPoker);
             setMessage("par v3");
-            moneyUpdate(dinero + (apuesta * 2 * multiplyPoker));
+            moneyUpdate((dinero - apuesta) + (apuesta * 2 * multiplyPoker));
 
-        }else{
+        }
+        else{
+            setGanancia(0);
             setMessage("perdiste");
             moneyUpdate(dinero-apuesta);
         }
@@ -147,9 +155,14 @@ function Casino() {
           <h2 className="slot">{reels[1].icon} </h2>
           <h2 className="slot">{reels[2].icon} </h2>
         </div>
+        
         <button className="spin" onClick={slotSpin}>SPIN</button>
     </div>
-    
+    <div className="historial">
+        <p className='ganancia'>
+            +{ganancia}
+        </p>
+    </div>
     </>   
   );
 }

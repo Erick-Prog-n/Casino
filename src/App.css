@@ -9,6 +9,10 @@
   padding: 20px;
 }
 
+.ganancia{
+  font-family: "CasinoBase";
+}
+
 .slot {
   background-color: rgba(99, 99, 99, 0.623);
   display: inline-block;
@@ -17,7 +21,18 @@
   border: 1px solid white;
   border-radius: 4px;
 }
-
+@font-face {
+  font-family: "GrandCasino";
+  src: url("Fonts/Grand Casino Demo.otf") format("opentype");
+}
+@font-face{
+  font-family: "Casino3D";
+  src: url("Fonts/Casino3DLines-Italic.ttf") format("opentype");
+}
+@font-face{
+  font-family: "CasinoBase";
+  src: url("Fonts/Casino.ttf") format("opentype");
+}
 .spin{
   background-color: rgba(50, 53, 59, 0.836);
   border-radius: 4px;
@@ -25,10 +40,6 @@
   padding: .4rem 0;
   color: aliceblue;
 }
-
-
-
-
 .App {
   text-align: center;
 }
