@@ -142,7 +142,7 @@ function Casino() {
 
   return (
     <>
-    <p>{message}</p>
+    <p className='resultado'>{message}</p>
     <div className="casino">
         <p>Dinero: {dinero}</p>  {/* en vez de dinero poner fichas y un icono a lado de ficha */}
         {/* podrias poner las reglas abajo
